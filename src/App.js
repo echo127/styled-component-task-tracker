@@ -1,18 +1,18 @@
 import AddTaskForm from "./components/AddTaskForm";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
-import GlobalStyle from "./styles/Global.styled";
-import {Container} from "./styles/Container.styled"
+import GlobalStyle from "./components/styles/Global.styled";
+import { StyledContainer } from "./components/styles/Container.styled"
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Container>
+      <StyledContainer>
         <Header />
         <AddTaskForm />
         <Tasks />
-      </Container>
+      </StyledContainer>
       
     </>
   );
