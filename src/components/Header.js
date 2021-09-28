@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <>
-      <h1>I am a header</h1>
+      <h1>Task Tracker</h1>
     </>
   )
 }
