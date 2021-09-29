@@ -6,7 +6,7 @@ import { StyledContainer } from "./components/styles/Container.styled"
 import { useState } from 'react';
 
 function App() {
-  const [tasks] = useState(tasks => [
+  const [tasks, setTasks] = useState(tasks => [
     {
       id: 1,
       text: 'Doctors Appointment',
@@ -29,17 +29,20 @@ function App() {
   const [isShowAddTaskFrom, setIsShowAddTaskForm] = useState(isShowAddTaskFrom =>false)
 
   const toggleAddTask = ()=> {
-    console.log('click')
     setIsShowAddTaskForm(isShowAddTaskFrom => !isShowAddTaskFrom)
+  }
+
+  const deleteTask = (id) => {
+    setTasks(tasks => tasks.filter(task => task.id !== id))
   }
 
   return (
     <>
       <GlobalStyle />
       <StyledContainer>
-        <Header isShowAddTaskFrom={isShowAddTaskFrom} toggleAddTask={toggleAddTask} />
+        <Header isShowAddTaskFrom={isShowAddTaskFrom} toggleAddTask={()=>toggleAddTask} />
         {isShowAddTaskFrom && <AddTaskForm />}
-        <Tasks tasks={tasks} />
+        <Tasks tasks={tasks} deleteTask={deleteTask} />
       </StyledContainer>      
     </>
   );
