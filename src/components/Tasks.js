@@ -1,10 +1,9 @@
 import Task from "./tasks/Task"
 
-const Tasks = () => {
+const Tasks = ({tasks}) => {
   return (
     <>
-      <h3>I have many tasks</h3>
-      <Task />
+      {tasks.map(task => <Task key={task.id} task={task} />)}
     </>
   )
 }

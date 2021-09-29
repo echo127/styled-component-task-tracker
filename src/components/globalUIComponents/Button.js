@@ -1,9 +1,10 @@
 import { StyledButton } from "../styles/Button.styled" 
 
-export const Button = () => {
+export const Button = ({bgColor, text, onClick}) => {
+
   return (
-    <StyledButton>
-      Add
+    <StyledButton bgColor={bgColor} onClick={onClick}>
+      {text}
     </StyledButton>
   )
 }

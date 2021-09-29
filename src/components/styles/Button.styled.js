@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const StyledButton = styled.button`
   display: inline-block;
-  background: #000;
+  background: ${({bgColor})=>bgColor};
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -18,9 +18,8 @@ export const StyledButton = styled.button`
   &:focus {
     outline: none;
   }
-`
-
-export const StyledButtonBlock = styled(StyledButton)`
-  display: block;
-  width: 100%;
+  &.block {
+    display: block;
+    width: 100%;
+  }
 `
