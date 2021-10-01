@@ -37,7 +37,12 @@ function App() {
   }
 
   const toggleReminder = (id) => {
-    setTasks(tasks.map(task => task.id === id? {...task, reminder: !task.reminder}:task))
+    setTasks(tasks => tasks.map(task => task.id === id? {...task, reminder: !task.reminder}:task))
+  }
+
+  const handleAddTask = (taskItem) => {
+    taskItem.id = Math.floor((Math.random() * 1000)+1)
+    setTasks(tasks => [...tasks, taskItem])
   }
 
   return (
@@ -45,7 +50,7 @@ function App() {
       <GlobalStyle />
       <StyledContainer>
         <Header isShowAddTaskFrom={isShowAddTaskFrom} toggleAddTask={toggleAddTask}  />
-        {isShowAddTaskFrom && <AddTaskForm />}
+        {isShowAddTaskFrom && <AddTaskForm onSubmit={handleAddTask} />}
         <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} />
       </StyledContainer>      
     </>

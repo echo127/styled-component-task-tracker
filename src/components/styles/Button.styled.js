@@ -28,6 +28,5 @@ export const StyledButton = styled.button`
   }
 `
 export const InputSubmit = styled.input.attrs({ 
-  type: 'submit',
-  value: 'Submit'
+  type: 'submit'
 })`${baseButtonStyle}`
