@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
-export const StyledButton = styled.button`
+const baseButtonStyle = css`
   display: inline-block;
   background: ${({bgColor})=>bgColor};
   color: #fff;
@@ -12,14 +12,22 @@ export const StyledButton = styled.button`
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
+  &.block {
+    display: block;
+    width: 100%;
+  }
+`
+
+export const StyledButton = styled.button`
+  ${baseButtonStyle}
   &:active {
     transform: scale(0.98);
   }
   &:focus {
     outline: none;
   }
-  &.block {
-    display: block;
-    width: 100%;
-  }
 `
+export const InputSubmit = styled.input.attrs({ 
+  type: 'submit',
+  value: 'Submit'
+})`${baseButtonStyle}`
