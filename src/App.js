@@ -49,7 +49,7 @@ function App() {
     <>
       <GlobalStyle />
       <StyledContainer>
-        <Header isShowAddTaskFrom={isShowAddTaskFrom} toggleAddTask={toggleAddTask}  />
+        <Header isShowAddTaskFrom={isShowAddTaskFrom} toggleAddTask={toggleAddTask} newType={11} />
         {isShowAddTaskFrom && <AddTaskForm onSubmit={handleAddTask} />}
         <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} />
       </StyledContainer>      

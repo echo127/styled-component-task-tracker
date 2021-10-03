@@ -1,4 +1,6 @@
 import { StyledButton } from "../styles/Button.styled" 
+import PropTypes from 'prop-types'
+
 
 export const Button = ({bgColor, text, onClick}) => {
 
@@ -7,4 +9,10 @@ export const Button = ({bgColor, text, onClick}) => {
       {text}
     </StyledButton>
   )
+}
+
+Button.propTypes = {
+  bgColor: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
