@@ -1,8 +1,9 @@
 import { StyledTask } from '../styles/Task.styled'
-import PropTypes from 'prop-types'
 import { FaTimes } from 'react-icons/fa'
+import PropTypes from 'prop-types'
 
-const Task = ({task, deleteTask, toggleReminder}) => {
+
+export const Task = ({task, deleteTask, toggleReminder}) => {
 
   return (
     <StyledTask className={task.reminder? 'reminder': ''} onDoubleClick={()=>toggleReminder(task.id)} >
@@ -12,8 +13,15 @@ const Task = ({task, deleteTask, toggleReminder}) => {
   )
 }
 
-Task.prototype = {
-  task: PropTypes.object.isRequired
+
+Task.propTypes = {
+  task: PropTypes.exact({
+    id: PropTypes.number,
+    text: PropTypes.string,
+    day: PropTypes.string,
+    reminder: PropTypes.bool,
+  }).isRequired,
+  deleteTask: PropTypes.func.isRequired,
+  toggleReminder: PropTypes.func.isRequired,
 }
 
-export default Task

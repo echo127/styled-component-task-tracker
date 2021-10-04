@@ -1,4 +1,4 @@
-import Task from "./tasks/Task"
+import {Task} from "./tasks/Task"
 
 const Tasks = ({tasks, deleteTask, toggleReminder}) => {
   return (

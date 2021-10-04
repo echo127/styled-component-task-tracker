@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "text": "Do the laundry",
+      "day": "28th Sept 2021",
+      "reminder": true,
+      "id": 8
+    },
+    {
+      "text": "Do shopping",
+      "day": "11th Sept 2021",
+      "reminder": false,
+      "id": 9
+    },
+    {
+      "text": "Teacher appointment",
+      "day": "29",
+      "reminder": false,
+      "id": 10
+    }
+  ]
+}
