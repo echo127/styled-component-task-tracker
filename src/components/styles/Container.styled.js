@@ -8,4 +8,8 @@ export const StyledContainer = styled.div`
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  footer {
+  margin-top: 30px;
+  text-align: center;
+  }
 `

@@ -1,15 +1,16 @@
 import { Button } from "./globalUIComponents/Button"
 import { StyledHeader } from "./styles/Header.styled"
 import PropTypes from 'prop-types'
+import { useLocation } from 'react-router-dom'
 
 
 
 const Header = ({isShowAddTaskFrom, toggleAddTask}) => {
-
+  const location = useLocation()
   return (
     <StyledHeader>
       <h1>Task Tracker</h1>
-      <Button bgColor={isShowAddTaskFrom? 'green': 'black'} text={isShowAddTaskFrom? 'Close':'Add'} onClick={toggleAddTask} />
+      {location.pathname === '/' && <Button bgColor={isShowAddTaskFrom? 'green': 'black'} text={isShowAddTaskFrom? 'Close':'Add'} onClick={toggleAddTask} />}
     </StyledHeader>
   )
 }

@@ -4,9 +4,13 @@ import Tasks from "./components/Tasks";
 import GlobalStyle from "./components/styles/Global.styled";
 import { StyledContainer } from "./components/styles/Container.styled"
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Footer from "./components/Footer";
+import About from "./components/About";
+
 
 function App() {
-  const [tasks, setTasks] = useState(tasks => [])
+  const [tasks, setTasks] = useState([])
   const [isShowAddTaskFrom, setIsShowAddTaskForm] = useState(isShowAddTaskFrom =>false)
 
   useEffect(()=>{
@@ -61,12 +65,20 @@ function App() {
 
   return (
     <>
-      <GlobalStyle />
-      <StyledContainer>
-        <Header isShowAddTaskFrom={isShowAddTaskFrom} toggleAddTask={toggleAddTask} newType={11} />
-        {isShowAddTaskFrom && <AddTaskForm onSubmit={handleAddTask} />}
-        <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} />
-      </StyledContainer>      
+      <Router>
+        <GlobalStyle />
+        <StyledContainer>
+          <Header isShowAddTaskFrom={isShowAddTaskFrom} toggleAddTask={toggleAddTask} />
+          {isShowAddTaskFrom && <AddTaskForm onSubmit={handleAddTask} />}
+          <Route path='/' exact render={(props)=>(
+            <>
+            {tasks.length > 0? <Tasks tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder} /> : 'No Tasks to Show'}
+            </>
+          )}></Route>
+          <Route path='/about' component={About}></Route>
+          <Footer />
+        </StyledContainer>
+      </Router>      
     </>
   );
 }
